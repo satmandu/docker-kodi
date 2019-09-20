@@ -18,12 +18,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-FROM ubuntu:bionic
+FROM ubuntu:eoan
 
 # install the team-xbmc ppa
 RUN apt-get update                                                        && \
     apt-get install -y --no-install-recommends software-properties-common && \
-    add-apt-repository ppa:team-xbmc/ppa                                  && \
+    add-apt-repository deb http://ppa.launchpad.net/team-xbmc/ppa/ubuntu disco main && \
     apt-get -y purge openssl software-properties-common                   && \
     apt-get -y --purge autoremove                                         && \
     rm -rf /var/lib/apt/lists/*
